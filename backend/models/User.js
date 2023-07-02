@@ -1,4 +1,4 @@
-  const mongoose = require("mongoose");
+const mongoose = require("mongoose");
 const bcrypt = require("bcrypt");
 
 const userSchema = mongoose.Schema(
@@ -15,6 +15,10 @@ const userSchema = mongoose.Schema(
       minLength: [2, "Name must be at least 2 characters"],
       maxlength: [20, "Name cannot be more than 20 characters"],
     },
+    phoneNumber: {
+      type: "string",
+      required: true,
+    },
     email: {
       type: "string",
       required: true,
@@ -22,10 +26,6 @@ const userSchema = mongoose.Schema(
       unique: true,
     },
     password: {
-      type: "string",
-      required: true,
-    },
-    phoneNumber: {
       type: "string",
       required: true,
     },

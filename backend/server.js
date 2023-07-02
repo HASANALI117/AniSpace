@@ -27,9 +27,11 @@ app.use(bodyParser.json());
 
 
 //<--import routers-->>
+const authRoute = require("./routes/auth");
 
 
 //<--mount routes-->>
+app.use('/', authRoute);
 
 
 
