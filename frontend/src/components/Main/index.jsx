@@ -1,21 +1,16 @@
 import styles from "./styles.module.css";
 
-const Main = () => {
-	const handleLogout = () => {
-		localStorage.removeItem("token");
-		window.location.reload();
-	};
+import React from 'react'
 
-	return (
-		<div className={styles.main_container}>
+export default function main() {
+  return (
+	<div className={styles.main_container}>
 			<nav className={styles.navbar}>
 				<h1>fakebook</h1>
-				<button className={styles.white_btn} onClick={handleLogout}>
+				<button className={styles.white_btn}>
 					Logout
 				</button>
 			</nav>
 		</div>
-	);
-};
-
-export default Main;
+  )
+}
