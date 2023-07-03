@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import styles from "../Intro/styles.module.css";
+import styles from "./styles.module.css";
 
 export default function Modal() {
   const [open, setOpen] = useState(false);
@@ -25,10 +25,9 @@ export default function Modal() {
               <img src="https://images.unsplash.com/photo-1618220179428-22790b461013?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=3027&q=80" alt="Modal Image" />
             </div>
             <h1>
-              Lorem ipsum dolor sit amet consectetur adipisicing elit. Rem ea beatae
-              natus!
+              Welcoem Night Night with Anime 
             </h1>
-            <button onClick={closeModal}>Lorem, ipsum.</button>
+            <button onClick={closeModal}>Welcome</button>
           </div>
         </div>
       )}

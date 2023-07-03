@@ -1,5 +1,5 @@
 import React from 'react'
-import styles from "../PricePackage/style.css"
+import styles from "./style.css"
 
 export default function NotFound() {
   return (
@@ -24,73 +24,73 @@ export default function NotFound() {
       <div className="row row-1">
         <div className="price-details">
           <span className="price">19</span>
-          <p>For beginner use</p>
+          <p>Basic monthly subscription:</p>
         </div>
         <ul className="features">
           <li>
             <i className="fas fa-check" />
-            <span>100 GB Premium Bandwidth</span>
+            <span>10 Movies Per Day.</span>
           </li>
           <li>
             <i className="fas fa-check" />
-            <span>FREE 50+ Installation Scripts WordPress Supported</span>
+            <span>Access to streaming on one device. </span>
           </li>
           <li>
             <i className="fas fa-check" />
             <span>
-              One FREE Domain Registration .com and .np extensions only
+            Standard definition video quality.
             </span>
           </li>
           <li>
             <i className="fas fa-check" />
-            <span>Unlimited Email Accounts &amp; Databases</span>
+            <span>1 Email Account &amp; Databases</span>
           </li>
         </ul>
       </div>
       <div className="row">
         <div className="price-details">
           <span className="price">99</span>
-          <p>For professional use</p>
+          <p>Standard monthly subscription:</p>
         </div>
         <ul className="features">
           <li>
             <i className="fas fa-check" />
-            <span>Unlimited GB Premium Bandwidth</span>
+            <span>50 Movies Per Day.</span>
           </li>
           <li>
             <i className="fas fa-check" />
-            <span>FREE 200+ Installation Scripts WordPress Supported</span>
+            <span>Access to streaming on 5 devices.</span>
           </li>
           <li>
             <i className="fas fa-check" />
             <span>
-              Five FREE Domain Registration .com and .np extensions only
+           HD video quality.
             </span>
           </li>
           <li>
             <i className="fas fa-check" />
-            <span>Unlimited Email Accounts &amp; Databases</span>
+            <span>10 Email Accounts &amp; Databases</span>
           </li>
         </ul>
       </div>
       <div className="row">
         <div className="price-details">
           <span className="price">49</span>
-          <p>For team collaboration</p>
+          <p>Premium monthly subscription:</p>
         </div>
         <ul className="features">
           <li>
             <i className="fas fa-check" />
-            <span>200 GB Premium Bandwidth</span>
+            <span>Unlimited Movies</span>
           </li>
           <li>
             <i className="fas fa-check" />
-            <span>FREE 100+ Installation Scripts WordPress Supported</span>
+            <span> Access to streaming on infinate devices.</span>
           </li>
           <li>
             <i className="fas fa-check" />
             <span>
-              Two FREE Domain Registration .com and .np extensions only
+            HD and Ultra HD video quality.
             </span>
           </li>
           <li>

@@ -9,6 +9,7 @@ const Signup = () => {
 		lastName: "",
 		email: "",
 		password: "",
+		phoneNumber:""
 	});
 	const [error, setError] = useState("");
 	const [msg, setMsg] = useState("");
@@ -84,9 +85,18 @@ const Signup = () => {
 							required
 							className={styles.input}
 						/>
+						<input
+							type="number"
+							placeholder="Phone Number"
+							name="phoneNumber"
+							onChange={handleChange}
+							value={data.phoneNumber}
+							required
+							className={styles.input}
+						/>
 						{error && <div className={styles.error_msg}>{error}</div>}
 						{msg && <div className={styles.success_msg}>{msg}</div>}
-						<button type="submit" className={styles.green_btn}>
+						<button type="submit" className={styles.button_btn}>
 							Sing Up
 						</button>
 					</form>

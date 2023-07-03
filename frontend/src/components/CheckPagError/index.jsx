@@ -1,5 +1,5 @@
 import React from 'react'
-import styles from "../PagError/style.css";
+import styles from "./style.css";
 
 export default function NotFound() {
   return (
@@ -99,8 +99,8 @@ export default function NotFound() {
   <div>
     <h1>404</h1>
     <p>
-      We couldn’t find the page you were looking for. It may have been moved, or
-      it just doesn’t exist.
+      We could not find the page you were looking for. It may have been moved, or
+      it just does not exist.
     </p>
     <a className="btn-link" href="#">
       Go Back Home

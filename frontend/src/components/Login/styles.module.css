@@ -44,7 +44,7 @@
 	width: 370px;
 	padding: 15px;
 	border-radius: 10px;
-	background-color: #edf5f3;
+	background-color: rgb(253, 240, 242);
 	margin: 5px 0;
 	font-size: 14px;
 }
@@ -79,7 +79,7 @@
 }
 
 .white_btn,
-.green_btn {
+.button_btn {
 	border: none;
 	outline: none;
 	padding: 12px 0;
@@ -91,7 +91,7 @@
 	cursor: pointer;
 }
 
-.green_btn {
+.button_btn {
 	background-color: pink;
 	color: white;
 	margin: 10px;
