@@ -1,5 +1,5 @@
 import React from 'react'
-
+import styles from '../CheckPageError/style.css'
 export default function NotFound() {
   return (
 
