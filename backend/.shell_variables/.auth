@@ -1,2 +1,4 @@
 signup
 signin
+sendOtp
+verifyPhoneNumber

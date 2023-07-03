@@ -28,10 +28,12 @@ app.use(bodyParser.json());
 
 //<--import routers-->>
 const authRoute = require("./routes/auth");
+const testRoute = require("./routes/test");
 
 
 //<--mount routes-->>
 app.use('/', authRoute);
+app.use('/', testRoute);
 
 
 
