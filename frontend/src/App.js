@@ -1,10 +1,10 @@
 import React, { useState } from 'react';
-import OtpInput from './OtpInput';
+import OtpInput from './components/Otp/OtpInput';
 
 const App = () => {
   return (
     <div>
-      <OtpInput />
+      <OtpInput/>
     </div>
   );
 };
