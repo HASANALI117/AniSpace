@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import Container from "react-bootstrap/Container";
 import Nav from "react-bootstrap/Nav";
 import Navbar from "react-bootstrap/Navbar";
+import CurrentSeasonCarousel from "./CurrentSeasonCarousel";
 
 export default class Home extends Component {
   render() {
@@ -19,6 +20,7 @@ export default class Home extends Component {
             </Navbar.Collapse>
           </Container>
         </Navbar>
+        <CurrentSeasonCarousel />
       </div>
     );
   }
