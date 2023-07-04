@@ -3,53 +3,48 @@ import { Carousel } from "@trendyol-js/react-carousel";
 import axios from "axios";
 import { useEffect, useState } from "react";
 import AnimeCard from "./AnimeCard";
+import { RxDoubleArrowRight } from "react-icons/rx";
+import { RxDoubleArrowLeft } from "react-icons/rx";
 
 export default function CurrentSeasonCarousel() {
   const [animeList, setAnimeList] = useState([]);
+  const [error, setError] = useState(null);
 
   useEffect(() => {
     axios
       .get("https://api.jikan.moe/v4/seasons/now")
       .then((response) => {
-        console.log(response.data.data, typeof response.data.data);
+        console.log(response.data.data);
         setAnimeList(response.data.data);
-        console.log(response.data.data[0].images.jpg.large_image_url);
       })
       .catch((error) => {
         console.log(error);
+        setError(error);
       });
   }, []);
 
-  return (
-    <Carousel show={5} slide={1} transition={0.5}>
+  if (error) {
+    return <div>Error: {error.message}</div>;
+  } else if (animeList.length === 0) {
+    return <div>Loading...</div>;
+  } else {
+    const animeCards = animeList.map((anime) => (
+      <AnimeCard key={anime.mal_id} anime={anime} />
+    ));
+
+    return (
       <div>
-        <img
-          src={animeList[0].images.jpg.large_image_url}
-          alt={animeList[0].titles[0].title}
-          style={{ width: "20%" }}
-        />
+        <div className="carousel-title">Current Season</div>
+        <Carousel
+          show={9}
+          slide={1}
+          transition={0.5}
+          leftArrow={<RxDoubleArrowLeft size={70} />}
+          rightArrow={<RxDoubleArrowRight size={70} />}
+        >
+          {animeCards}
+        </Carousel>
       </div>
-      <div>
-        <img
-          src={animeList[1].images.jpg.large_image_url}
-          alt={animeList[1].titles[0].title}
-          style={{ width: "20%" }}
-        />
-      </div>
-      <div>
-        <img
-          src={animeList[2].images.jpg.large_image_url}
-          alt={animeList[2].titles[0].title}
-          style={{ width: "20%" }}
-        />
-      </div>
-      <div>
-        <img
-          src={animeList[3].images.jpg.large_image_url}
-          alt={animeList[3].titles[0].title}
-          style={{ width: "20%" }}
-        />
-      </div>
-    </Carousel>
-  );
+    );
+  }
 }
