@@ -1,6 +1,6 @@
 // LoginPage.js 
 import React, { useEffect } from 'react';
-import styles from "../AhmedCheckThisUserAuth/style.css"
+import '../AhmedCheckThisUserAuth/style.css'
 
 export default function LoginPage() {
   useEffect(() => {
