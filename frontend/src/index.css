@@ -30,3 +30,16 @@ body {
   margin: 20px;
   margin-top: 10px;
 }
+
+.trailer-carousel-slide {
+  width: 100%;
+  margin: auto;
+  display: flex;
+}
+
+.trailer-carousel-video {
+  width: 100%;
+  margin: auto;
+  display: flex;
+  justify-content: center;
+}

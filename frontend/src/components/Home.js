@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import Slide from "./Slide";
 import Video from "./Video";
+import TrailerSlide from "./TrailerSlide";
 import CardsCarousel from "./CardsCarousel";
 import axios from "axios";
 
@@ -15,17 +16,20 @@ export default function Home() {
       .then((response) => {
         console.log(response.data.data);
         setAiringAnimeList(response.data.data);
-      })
-      .catch((error) => {
-        console.log(error);
-        setError(error);
-      });
 
-    axios
-      .get("https://api.jikan.moe/v4/top/anime")
-      .then((response) => {
-        console.log(response.data.data);
-        setTopAnimeList(response.data.data);
+        // Add a delay of 1 second before making the second call
+        setTimeout(() => {
+          axios
+            .get("https://api.jikan.moe/v4/top/anime")
+            .then((response) => {
+              console.log(response.data.data);
+              setTopAnimeList(response.data.data);
+            })
+            .catch((error) => {
+              console.log(error);
+              setError(error);
+            });
+        }, 500);
       })
       .catch((error) => {
         console.log(error);
@@ -43,6 +47,8 @@ export default function Home() {
     <div>
       {/* <Video /> */}
       <Slide />
+
+      {/* <TrailerSlide /> */}
       <CardsCarousel
         animeList={airingAnimeList}
         carouselTitle={"Current Season"}

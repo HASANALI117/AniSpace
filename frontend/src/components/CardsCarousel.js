@@ -57,7 +57,6 @@ export default function CurrentSeasonCarousel(props) {
       >
         {animeCards}
       </Carousel>
-      ;
     </div>
   );
 }
