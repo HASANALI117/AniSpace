@@ -36,11 +36,37 @@ export default function CurrentSeasonCarousel() {
       <div>
         <div className="carousel-title">Current Season</div>
         <Carousel
-          show={9}
-          slide={1}
+          style={{
+            width: "100%",
+            height: "25%",
+            display: "flex",
+            justifyContent: "space-between",
+          }}
+          show={6.5}
+          slide={3}
           transition={0.5}
-          leftArrow={<RxDoubleArrowLeft size={70} />}
-          rightArrow={<RxDoubleArrowRight size={70} />}
+          leftArrow={
+            <RxDoubleArrowLeft
+              size={70}
+              style={{
+                position: "relative",
+                top: "50%",
+                left: "50%",
+                transform: "translate(-50%, -50%)",
+              }}
+            />
+          }
+          rightArrow={
+            <RxDoubleArrowRight
+              size={70}
+              style={{
+                position: "relative",
+                top: "50%",
+                left: "50%",
+                transform: "translate(-50%, -50%)",
+              }}
+            />
+          }
         >
           {animeCards}
         </Carousel>

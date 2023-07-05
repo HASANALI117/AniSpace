@@ -23,7 +23,6 @@ export default function AnimeCard(props) {
     display: "flex",
     flexDirection: "column",
     justifyContent: isExpanded ? "space-between" : "flex-end",
-    alignItems: "flex-end",
     padding: "10px",
     boxSizing: "border-box",
     textAlign: "left",
@@ -31,7 +30,7 @@ export default function AnimeCard(props) {
 
   const titleStyle = {
     color: "white",
-    fontSize: "1.2rem",
+    fontSize: "1.5vh",
     fontWeight: "bold",
     marginBottom: "5px",
     textAlign: "center",
@@ -39,7 +38,7 @@ export default function AnimeCard(props) {
 
   const ratingStyle = {
     color: "white",
-    fontSize: "1rem",
+    fontSize: "1vhm",
     marginBottom: "5px",
   };
 
@@ -47,6 +46,7 @@ export default function AnimeCard(props) {
     color: "white",
     fontSize: "1rem",
     marginBottom: "5px",
+    textAlign: "left",
   };
 
   return (
@@ -54,7 +54,7 @@ export default function AnimeCard(props) {
       style={{
         position: "relative",
         width: "100%",
-        height: "auto",
+        height: "100%",
         borderRadius: "10px",
         overflow: "hidden",
         boxShadow: "0px 0px 10px rgba(0, 0, 0, 0.5)",
@@ -65,7 +65,7 @@ export default function AnimeCard(props) {
       <img
         src={props.anime.images.jpg.image_url}
         alt={props.anime.title}
-        style={{ width: "100%", height: "auto" }}
+        style={{ width: "100%", height: "100%", objectFit: "cover" }}
       />
       <div style={overlayStyle}>
         <div style={titleStyle}>{props.anime.title}</div>
