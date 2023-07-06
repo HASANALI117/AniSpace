@@ -1,0 +1,46 @@
+.profile_container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    max-width: 100vh;
+  }
+  
+  .profile_form {
+    width: 400px;
+    padding: 20px;
+    background-color: #fff;
+    border-radius: 10px;
+  }
+  
+  .input {
+    width: 100%;
+    border: 1px solid #ccc;
+    padding: 10px;
+    margin-bottom: 10px;
+  }
+  
+  .button_btn {
+    background-color: #000;
+    color: #fff;
+    padding: 10px;
+    border: none;
+    cursor: pointer;
+  }
+  
+  /* Dark Mode */
+  
+  @media (prefers-color-scheme: dark) {
+    .profile_container {
+      background-color: #121212;
+    }
+  
+    .input {
+      border-color: #000;
+      color: #fff;
+    }
+  
+    .button_btn {
+      background-color: #fff;
+      color: #000;
+    }
+  }
