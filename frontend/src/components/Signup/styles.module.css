@@ -23,7 +23,7 @@
 	align-items: center;
 	justify-content: center;
 	/*  */
-	background-color:pink;
+	background-color:grey;
 	border-top-left-radius: 10px;
 	border-bottom-left-radius: 10px;
 }
@@ -63,7 +63,7 @@
 	width: 370px;
 	padding: 15px;
 	border-radius: 10px;
-	background-color: rgb(253, 240, 242);
+	background-color: rgb(196, 187, 188);
 	margin: 5px 0;;
 	margin: 5px 0;
 	font-size: 14px;
@@ -75,14 +75,14 @@
 	padding: 15px;
 	margin: 5px 0;
 	font-size: 14px;
-	background-color: #f34646;
+	background-color: #f5f5f5;
 	color: white;
 	border-radius: 5px;
 	text-align: center;
 }
 
 .success_msg {
-	background-color: rgb(228, 165, 175);
+	background-color: grey;
 }
 
 .white_btn,
@@ -99,7 +99,7 @@
 }
 
 .button_btn {
-	background-color: pink;
+	background-color:grey;
 	color: white;
 	margin: 10px;
 }
