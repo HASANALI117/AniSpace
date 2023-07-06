@@ -1,0 +1,9 @@
+.poster {
+    cursor: pointer;
+  }
+  .poster-hovered {
+    background-color: #eee;
+  }
+  .title-hovered {
+    display: block;
+  }

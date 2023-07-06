@@ -1,5 +1,8 @@
 import logo from './logo.svg';
 import './App.css';
+import React from 'react';
+import FilmPoster from './components/FilmPoster';
+
 
 function App() {
   return (
@@ -18,6 +21,13 @@ function App() {
           Learn React
         </a>
       </header>
+      
+      <div>
+      {movies.map((movie) => (
+        <FilmPoster key={movie.movieTitle} posterUrl={movie.posterUrl} movieTitle={movie.movieTitle} />
+      ))}
+    </div>
+
     </div>
   );
 }
