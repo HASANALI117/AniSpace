@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import axios from "axios";
-import '../UserProfile/style.css'
+import '../UserProfile/style.css';
 
 const UserProfile = () => {
   const [data, setData] = useState({
@@ -12,6 +12,7 @@ const UserProfile = () => {
     phone: "",
   });
 
+ 
   const handleChange = ({ currentTarget: input }) => {
     setData({ ...data, [input.name]: input.value });
   };
@@ -31,10 +32,10 @@ const UserProfile = () => {
   };
 
   return (
-    <div>
+    <div class="formuserprofile">
       <h1>User Profile</h1>
-      <form onSubmit={handleSubmit}>
-        <input
+      <form class="formformuser" onSubmit={handleSubmit}>
+        <input class ="userprofileinput"
           type="text"
           placeholder="First Name"
           name="firstName"
@@ -42,7 +43,7 @@ const UserProfile = () => {
           value={data.firstName}
           required
         />
-        <input
+        <input class ="userprofileinput"
           type="text"
           placeholder="Last Name"
           name="lastName"
@@ -50,7 +51,7 @@ const UserProfile = () => {
           value={data.lastName}
           required
         />
-        <input
+        <input class ="userprofileinput"
           type="email"
           placeholder="Email"
           name="email"
@@ -58,7 +59,7 @@ const UserProfile = () => {
           value={data.email}
           required
         />
-        <input
+        <input class ="userprofileinput"
           type="password"
           placeholder="Password"
           name="password"
@@ -66,7 +67,7 @@ const UserProfile = () => {
           value={data.password}
           required
         />
-        <input
+        <input class ="userprofileinput"
           type="tel"
           placeholder="Phone Number"
           name="phone"
@@ -74,9 +75,9 @@ const UserProfile = () => {
           value={data.phone}
           required
         />
-        <button type="submit">Update Profile</button>
+        <button class="buttonupdateuserprofile" type="submit">Update Profile</button>
       </form>
-      <Link to="/">Back to Home</Link>
+      <Link to="/" class="backtohome">Back to Home</Link>
     </div>
   );
 };
