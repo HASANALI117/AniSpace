@@ -57,7 +57,6 @@ export default function AnimeCard(props) {
         height: "100%",
         borderRadius: "10px",
         overflow: "hidden",
-        boxShadow: "0px 0px 10px rgba(0, 0, 0, 0.5)",
       }}
       onMouseEnter={handleMouseEnter}
       onMouseLeave={handleMouseLeave}
@@ -67,17 +66,17 @@ export default function AnimeCard(props) {
         alt={props.anime.title}
         style={{ width: "100%", height: "100%", objectFit: "cover" }}
       />
-      <div style={overlayStyle}>
-        <div style={titleStyle}>{props.anime.title}</div>
+      {/* <div style={overlayStyle}>
+        <div className="anime-title">{props.anime.title}</div>
         {isExpanded && (
           <div>
-            <div style={ratingStyle}>Rating: {props.anime.score}</div>
-            <div style={genreStyle}>
+            <div className="anime-rating">Rating: {props.anime.score}</div>
+            <div className="anime-genre">
               Genres: {props.anime.genres.map((genre) => genre.name).join(", ")}
             </div>
           </div>
         )}
-      </div>
+      </div> */}
     </div>
   );
 }
