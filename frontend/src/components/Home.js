@@ -45,8 +45,8 @@ export default function Home() {
 
   return (
     <div>
-      {/* <Video /> */}
-      <Slide />
+      <Video />
+      {/* <Slide /> */}
 
       {/* <TrailerSlide /> */}
       <CardsCarousel

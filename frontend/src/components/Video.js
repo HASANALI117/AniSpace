@@ -10,9 +10,12 @@ export default class Video extends Component {
           style={{
             width: "800px",
             height: "400px",
+            margin: "20px 10px",
+            display: "flex",
+            justifyContent: "center",
             // margin: "20px auto",
           }}
-          className="video-slide"
+          className="slide"
         >
           <Carousel.Item interval={1000}>
             <HoverVideoPlayer
