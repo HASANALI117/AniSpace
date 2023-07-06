@@ -43,3 +43,11 @@ body {
   display: flex;
   justify-content: center;
 }
+
+.carousel-title {
+  font-size: 2rem;
+  font-weight: bold;
+  text-align: center;
+  margin-bottom: 1rem;
+  margin-top: 4rem;
+}
