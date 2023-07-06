@@ -4,14 +4,12 @@ body {
   color: white;
 }
 .slide {
-  margin: 13px auto;
+  margin: 20px 10px;
   display: flex;
   justify-content: center;
 }
-.carousel {
-  width: 900px;
-  height: 500px;
-  position: relative;
+.container {
+  margin-left: 0;
 }
 .carousel-caption {
   width: inherit;
@@ -27,6 +25,49 @@ body {
   color: white;
 }
 .top-anime {
-  margin: 20px;
-  margin-top: 10px;
+  margin: 40px;
+  text-align: center;
+}
+
+.carousel-title {
+  background-color: #212529;
+  text-align: center;
+  padding: 10px 0;
+  margin-bottom: 30px;
+}
+.anime-carousel {
+  display: flex;
+}
+.anime-title {
+  color: "white";
+  font-size: "20px";
+  font-weight: "bold";
+  margin-bottom: "5px";
+  text-align: "center";
+}
+.anime-rating {
+  color: "white";
+  font-weight: "bold";
+  margin-bottom: "5px";
+}
+.anime-genre {
+  color: "white";
+  font-weight: "bold";
+  margin-bottom: "5px";
+}
+.anime-image {
+  width: 286px;
+  height: 404px;
+  object-fit: cover;
+  margin: 10px;
+}
+.anime-card {
+  position: "relative";
+  width: "100%";
+  height: "auto";
+  border-radius: "10px";
+  overflow: "hidden";
+}
+.video-slide {
+  margin: "20px auto";
 }

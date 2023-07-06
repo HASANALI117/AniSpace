@@ -22,31 +22,11 @@ export default function AnimeCard(props) {
     transition: "height 0.5s",
     display: "flex",
     flexDirection: "column",
-    justifyContent: isExpanded ? "space-between" : "flex-end",
+    justifyContent: "flex-end",
     alignItems: "flex-end",
     padding: "10px",
     boxSizing: "border-box",
     textAlign: "left",
-  };
-
-  const titleStyle = {
-    color: "white",
-    fontSize: "1.2rem",
-    fontWeight: "bold",
-    marginBottom: "5px",
-    textAlign: "center",
-  };
-
-  const ratingStyle = {
-    color: "white",
-    fontSize: "1rem",
-    marginBottom: "5px",
-  };
-
-  const genreStyle = {
-    color: "white",
-    fontSize: "1rem",
-    marginBottom: "5px",
   };
 
   return (
@@ -57,7 +37,6 @@ export default function AnimeCard(props) {
         height: "auto",
         borderRadius: "10px",
         overflow: "hidden",
-        boxShadow: "0px 0px 10px rgba(0, 0, 0, 0.5)",
       }}
       onMouseEnter={handleMouseEnter}
       onMouseLeave={handleMouseLeave}
@@ -65,19 +44,19 @@ export default function AnimeCard(props) {
       <img
         src={props.anime.images.jpg.image_url}
         alt={props.anime.title}
-        style={{ width: "100%", height: "auto" }}
+        className="anime-image"
       />
-      <div style={overlayStyle}>
-        <div style={titleStyle}>{props.anime.title}</div>
+      {/* <div style={overlayStyle}>
+        <div className="anime-title">{props.anime.title}</div>
         {isExpanded && (
           <div>
-            <div style={ratingStyle}>Rating: {props.anime.score}</div>
-            <div style={genreStyle}>
+            <div className="anime-rating">Rating: {props.anime.score}</div>
+            <div className="anime-genre">
               Genres: {props.anime.genres.map((genre) => genre.name).join(", ")}
             </div>
           </div>
         )}
-      </div>
+      </div> */}
     </div>
   );
 }
