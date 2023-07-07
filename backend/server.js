@@ -24,8 +24,10 @@ app.use(express.static("public")); // Serve static files
 app.use(express.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 
+const cors = require("cors");
 const requestDetailsLogger = require("./middleware/requestDetailsLogger");
 
+app.use(cors());
 app.use(requestDetailsLogger.requestDetailsLogger);
 
 //<--import routers-->>
@@ -38,8 +40,8 @@ const animeRoute = require("./routes/anime");
 app.use("/", authRoute);
 app.use("/", testRoute);
 
-app.use('/', listRoute);
-app.use('/', animeRoute);
+app.use("/", listRoute);
+app.use("/", animeRoute);
 const port = 4000;
 
 app.listen(port, function () {
