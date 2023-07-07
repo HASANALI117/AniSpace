@@ -1,10 +1,14 @@
 const express = require("express");
-    const router = express.Router();
+const router = express.Router();
 
-    //<--import controllers-->>
-    const smsCtrl = require("../controllers/test/sms");
+const ensureLoggedin = require("../config/Auth/ensureLoggedin");
 
-    //<--make api routes-->>
-    router.post('/test/send/sms', smsCtrl.sms);
+//<--import controllers-->>
+const loggedinTestCtrl = require("../controllers/test/loggedinTest");
+const smsCtrl = require("../controllers/test/sms");
 
-    module.exports = router;
+//<--make api routes-->>
+router.get("/test/loggedin", ensureLoggedin, loggedinTestCtrl.loggedinTest);
+router.post("/test/send/sms", smsCtrl.sms);
+
+module.exports = router;

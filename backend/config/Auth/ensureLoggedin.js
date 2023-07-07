@@ -4,11 +4,9 @@ require("dotenv").config();
 module.exports = (req, res, next) => {
   var token = "";
   var authToken = req.header("Authorization");
-  console.log(authToken);
 
   if (authToken) {
     authToken = authToken.replace("Bearer ", "");
-    console.log(authToken);
     token = authToken;
   }
 

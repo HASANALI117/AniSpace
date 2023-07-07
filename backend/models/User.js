@@ -1,5 +1,6 @@
 const mongoose = require("mongoose");
 const bcrypt = require("bcrypt");
+const List = require("./List");
 
 const userSchema = mongoose.Schema(
   {
@@ -18,6 +19,15 @@ const userSchema = mongoose.Schema(
     phoneNumber: {
       type: "string",
       required: true,
+      unique: true,
+    },
+    phoneNumberVerified: {
+      type: "boolean",
+      default: false,
+    },
+    twoFactorAuthEnabled: {
+      type: "boolean",
+      default: false,
     },
     email: {
       type: "string",
@@ -30,6 +40,12 @@ const userSchema = mongoose.Schema(
       required: true,
       unique: true,
     },
+    lists: [
+      {
+        type: mongoose.Schema.Types.ObjectId,
+        ref: "List",
+      },
+    ],
   },
   {
     timestamps: true,
