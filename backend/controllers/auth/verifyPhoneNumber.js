@@ -16,9 +16,19 @@ exports.verifyPhoneNumber = async function (req, res) {
       OneTimePassword: req.body.otp,
     };
 
+    const SMSparams = {
+      Message: "Phone number verified successfully",
+      PhoneNumber: req.body.phoneNumber,
+    };
+
     const result = await sns.verifySMSSandboxPhoneNumber(params).promise();
     console.log("result: ", result);
     console.log("Phone number verified successfully");
+
+    //send SMS to the verified phone number
+    const SMSresult = await sns.publish(SMSparams).promise();
+    console.log("SMS sent successfully:", SMSresult.MessageId);
+
     res.status(200).json({ message: "Phone number verified successfully" });
   } catch (err) {
     console.log("Error verifying phone number: ", err);
