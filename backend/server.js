@@ -32,12 +32,14 @@ app.use(requestDetailsLogger.requestDetailsLogger);
 const authRoute = require("./routes/auth");
 const testRoute = require("./routes/test");
 const listRoute = require("./routes/list");
+const animeRoute = require("./routes/anime");
 
 //<--mount routes-->>
 app.use("/", authRoute);
 app.use("/", testRoute);
 
 app.use('/', listRoute);
+app.use('/', animeRoute);
 const port = 4000;
 
 app.listen(port, function () {
