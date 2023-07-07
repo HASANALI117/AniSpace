@@ -5,6 +5,7 @@ import Button from "react-bootstrap/Button";
 import Card from "react-bootstrap/Card";
 import YouTube from "react-youtube-embed";
 import RelatedAnime from "./RelatedAnime";
+import Loading from "./Loading";
 
 export default function AnimeDetails() {
   const location = useLocation();
@@ -44,15 +45,14 @@ export default function AnimeDetails() {
     setTimeoutId(timerId);
   }, [id]);
   if (!animeDetail) {
-    return <div>Loading...</div>;
+    return <Loading />;
   }
   if (error) {
     return <div>Error: {error.message}</div>;
-  } else if (
-    (relatedAnimeList.length === 0 && !isTimeOut) ||
-    relatedAnimeList === null
-  ) {
-    return <div>Loading...</div>;
+  } else if (relatedAnimeList === null) {
+    return <Loading />;
+  } else if (relatedAnimeList.length === 0 && !isTimeOut) {
+    return <Loading />;
   } else if (relatedAnimeList.length > 0) {
     clearTimeout(timeoutId);
   }

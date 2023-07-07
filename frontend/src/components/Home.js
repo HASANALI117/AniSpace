@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import Slide from "./Slide";
 import CardsCarousel from "./CardsCarousel";
+import Loading from "./Loading";
 import axios from "axios";
 
 export default function Home() {
@@ -38,15 +39,13 @@ export default function Home() {
   if (error) {
     return <div>Error: {error.message}</div>;
   } else if (airingAnimeList.length === 0) {
-    return <div>Loading...</div>;
+    return <Loading />;
   }
 
   return (
     <div>
-      {/* <Video /> */}
       <Slide />
 
-      {/* <TrailerSlide /> */}
       <CardsCarousel
         animeList={airingAnimeList}
         carouselTitle={"Current Season"}
