@@ -15,20 +15,6 @@ export default function Home() {
       .then((response) => {
         console.log(response.data.data);
         setAiringAnimeList(response.data.data);
-
-        // Add a delay of 1 second before making the second call
-        setTimeout(() => {
-          axios
-            .get("https://api.jikan.moe/v4/top/anime")
-            .then((response) => {
-              console.log(response.data.data);
-              setTopAnimeList(response.data.data);
-            })
-            .catch((error) => {
-              console.log(error);
-              setError(error);
-            });
-        }, 500);
       })
       .catch((error) => {
         console.log(error);
@@ -50,7 +36,6 @@ export default function Home() {
         animeList={airingAnimeList}
         carouselTitle={"Current Season"}
       />
-      <CardsCarousel animeList={topAnimeList} carouselTitle={"Top Anime"} />
     </div>
   );
 }

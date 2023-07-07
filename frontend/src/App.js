@@ -12,6 +12,7 @@ import Forums from "./components/Forums";
 import Anime from "./components/Anime";
 import Search from "./components/Search";
 import AnimeDetails from "./components/AnimeDetails";
+import Movie from "./components/Movie";
 
 // Styles
 import "./index.css";
@@ -65,6 +66,7 @@ export default function App() {
         <Route path="/anime" element={<Anime />} />
         <Route path="/anime-details" element={<AnimeDetails />} />
         <Route path="/search" element={<Search results={results} />} />
+        <Route path="/movie" element={<Movie />} />
       </Routes>
     </>
   );

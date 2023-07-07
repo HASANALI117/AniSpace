@@ -4,12 +4,12 @@ import { useState } from "react";
 import CardsCarousel from "./CardsCarousel";
 import { useEffect } from "react";
 
-export default function Anime() {
-  const [anime, setAnime] = useState({});
+export default function Movie() {
+  const [movie, setMovie] = useState({});
 
   useEffect(() => {
-    console.log(anime);
-  }, [anime]);
+    console.log(movie);
+  }, [movie]);
 
   const delay = (ms) => {
     return new Promise((resolve) => setTimeout(resolve, ms));
@@ -32,7 +32,7 @@ export default function Anime() {
 
     const requests = genres.map((genre) =>
       axios.get(
-        `http://ec2-15-185-195-60.me-south-1.compute.amazonaws.com:4000/anime/${genre}`
+        `http://ec2-15-185-195-60.me-south-1.compute.amazonaws.com:4000/movie/${genre}`
       )
     );
 
@@ -40,7 +40,7 @@ export default function Anime() {
       .then((res) => {
         console.log(res.data);
         for (const genreIndex in genres) {
-          setAnime((prevAnime) => ({
+          setMovie((prevAnime) => ({
             ...prevAnime,
             [genres[genreIndex]]: res[genreIndex].data.results.sort(
               () => Math.random() - 0.5
@@ -54,30 +54,10 @@ export default function Anime() {
 
     const fetchData = async () => {
       try {
-        const airing = await axios.get(
-          "https://api.jikan.moe/v4/top/anime?type=tv&sfw&filter=airing"
-        );
-        setAnime((prevAnime) => ({
-          "Top Airing": airing.data.data,
-          ...prevAnime,
-        }));
-
-        await delay(333); // Delay before making the second call
-
-        const favorite = await axios.get(
-          "https://api.jikan.moe/v4/top/anime?type=tv&sfw&filter=favorite"
-        );
-        setAnime((prevAnime) => ({
-          "Fan Favorite": favorite.data.data,
-          ...prevAnime,
-        }));
-
-        await delay(333); // Delay before making the third call
-
         const popular = await axios.get(
-          "https://api.jikan.moe/v4/top/anime?type=tv&sfw&filter=bypopularity"
+          "https://api.jikan.moe/v4/top/anime?type=movie&sfw&filter=bypopularity"
         );
-        setAnime((prevAnime) => ({
+        setMovie((prevAnime) => ({
           "Most Popular": popular.data.data,
           ...prevAnime,
         }));
@@ -91,12 +71,8 @@ export default function Anime() {
 
   return (
     <div>
-      {Object.entries(anime).map(([genre, animeList]) => (
-        <CardsCarousel
-          key={genre}
-          carouselTitle={genre}
-          animeList={animeList}
-        />
+      {Object.entries(movie).map(([genre, anime]) => (
+        <CardsCarousel key={genre} carouselTitle={genre} animeList={anime} />
       ))}
     </div>
   );
