@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import Carousel from "react-bootstrap/Carousel";
-import TopAnime from "./TopAnime";
+import HoverVideoPlayer from "react-hover-video-player";
 
 export default class Slide extends Component {
   render() {
@@ -9,10 +9,22 @@ export default class Slide extends Component {
         <div>
           <Carousel>
             <Carousel.Item interval={1000}>
-              <img
-                className="d-block w-100 carousel"
-                src="https://images5.alphacoders.com/606/606284.jpg"
-                alt="First slide"
+              <HoverVideoPlayer
+                videoSrc="https://anispace.s3.me-south-1.amazonaws.com/OnePiece.mp4"
+                muted={false}
+                restartOnPaused={true}
+                pausedOverlay={
+                  <img
+                    className="d-block w-100 carousel"
+                    src="https://www.crunchyroll.com/imgsrv/display/thumbnail/640x360/catalog/crunchyroll/1ecde018e863e2aaee31f00a23378c35.jpe"
+                    alt=""
+                  />
+                }
+                loadingOverlay={
+                  <div className="loading-overlay">
+                    <div className="loading-spinner" />
+                  </div>
+                }
               />
               <Carousel.Caption>
                 <div className="carousel-cap">

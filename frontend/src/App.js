@@ -1,5 +1,8 @@
 import React from "react";
 import { Routes, Route } from "react-router-dom";
+import { useNavigate, useLocation } from "react-router-dom";
+import { useState } from "react";
+import axios from "axios";
 
 // Pages
 import Home from "./components/Home";
@@ -8,9 +11,7 @@ import NavigationBar from "./components/NavigationBar";
 import Forums from "./components/Forums";
 import Anime from "./components/Anime";
 import Search from "./components/Search";
-import { useNavigate, useLocation } from "react-router-dom";
-import { useState } from "react";
-import axios from "axios";
+import AnimeDetails from "./components/AnimeDetails";
 
 // Styles
 import "./index.css";
@@ -62,6 +63,7 @@ export default function App() {
         <Route path="/signin" element={<Signin />} />
         <Route path="/forums" element={<Forums />} />
         <Route path="/anime" element={<Anime />} />
+        <Route path="/anime-details" element={<AnimeDetails />} />
         <Route path="/search" element={<Search results={results} />} />
       </Routes>
     </>

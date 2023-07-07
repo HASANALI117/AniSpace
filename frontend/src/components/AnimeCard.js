@@ -30,7 +30,7 @@ export default function AnimeCard(props) {
 
   const titleStyle = {
     color: "white",
-    fontSize: "1.5vh",
+    fontSize: "0.8rem",
     fontWeight: "bold",
     marginBottom: "5px",
     textAlign: "center",
@@ -38,16 +38,22 @@ export default function AnimeCard(props) {
 
   const ratingStyle = {
     color: "white",
-    fontSize: "1vhm",
+    fontSize: "0.8rem",
     marginBottom: "5px",
   };
 
   const genreStyle = {
     color: "white",
-    fontSize: "1rem",
+    fontSize: "0.8rem",
     marginBottom: "5px",
     textAlign: "left",
   };
+
+  const score = props.anime.score ? `Rating: ${props.anime.score}` : "";
+
+  const genre = props.anime.genres
+    ? `Genres: ${props.anime.genres.map((genre) => genre.name).join(", ")}`
+    : "";
 
   return (
     <div
@@ -58,6 +64,7 @@ export default function AnimeCard(props) {
         borderRadius: "10px",
         overflow: "hidden",
         boxShadow: "0px 0px 10px rgba(0, 0, 0, 0.5)",
+        border: "1px solid white",
       }}
       onMouseEnter={handleMouseEnter}
       onMouseLeave={handleMouseLeave}
@@ -71,10 +78,8 @@ export default function AnimeCard(props) {
         <div style={titleStyle}>{props.anime.title}</div>
         {isExpanded && (
           <div>
-            <div style={ratingStyle}>Rating: {props.anime.score}</div>
-            <div style={genreStyle}>
-              Genres: {props.anime.genres.map((genre) => genre.name).join(", ")}
-            </div>
+            <div style={ratingStyle}>{score}</div>
+            <div style={genreStyle}>{genre}</div>
           </div>
         )}
       </div>

@@ -8,8 +8,12 @@ import Button from "react-bootstrap/Button";
 export default function NavigationBar(props) {
   return (
     <div>
-      <Navbar expand="lg" bg="dark" data-bs-theme="dark">
-        <Container>
+      <Navbar
+        expand="lg"
+        data-bs-theme="dark"
+        style={{ backgroundColor: "#212529" }}
+      >
+        <Container style={{ marginLeft: "0" }}>
           <Navbar.Brand href="/">AniSpace</Navbar.Brand>
           <Navbar.Toggle aria-controls="basic-navbar-nav" />
           <Navbar.Collapse id="basic-navbar-nav">

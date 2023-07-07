@@ -1,6 +1,6 @@
 body {
   margin: 0;
-  background-color: grey;
+  background-color: #3c4048;
   color: white;
 }
 .slide {
@@ -45,9 +45,19 @@ body {
 }
 
 .carousel-title {
+  background-color: #212529;
   font-size: 2rem;
   font-weight: bold;
   text-align: center;
   margin-bottom: 1rem;
-  margin-top: 4rem;
+  margin-top: 3rem;
+}
+.anime-detail-section {
+  display: flex;
+  justify-content: space-around;
+  margin: 20px auto;
+}
+.anime-details-buttons {
+  display: flex;
+  justify-content: space-around;
 }

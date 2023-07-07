@@ -1,7 +1,5 @@
 import React, { useEffect, useState } from "react";
 import Slide from "./Slide";
-import Video from "./Video";
-import TrailerSlide from "./TrailerSlide";
 import CardsCarousel from "./CardsCarousel";
 import axios from "axios";
 
