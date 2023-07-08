@@ -10,7 +10,7 @@ import jwt_decode from "jwt-decode";
 import Home from "./components/Home";
 import Signin from "./components/Signin";
 import NavigationBar from "./components/NavigationBar";
-import Forums from "./components/Forums";
+// import Forums from "./components/Forums";
 import Anime from "./components/Anime";
 import Search from "./components/Search";
 import AnimeDetails from "./components/AnimeDetails";
@@ -99,7 +99,7 @@ export default function App() {
         <Route path="/" element={<Home />} />
         <Route path="/signin" element={<Signin />} />
         <Route path="/signup" element={<Signup />} />
-        <Route path="/forums" element={<Forums />} />
+        {/* <Route path="/forums" element={<Forums />} /> */}
         <Route path="/anime" element={<Anime />} />
         <Route path="/anime-details" element={<AnimeDetails />} />
         <Route path="/search" element={<Search results={results} />} />
