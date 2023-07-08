@@ -14,8 +14,12 @@ const createCtrl = require("../controllers/list/create");
 //<--make api routes-->>
 router.get("/list/:listId/items", ensureLoggedin, getItemsCtrl.getItems);
 router.get("/user/lists", ensureLoggedin, getListsCtrl.getLists);
-router.post("/list/removeItem", ensureLoggedin, removeItemCtrl.removeItem);
-router.post("/list/addItem", ensureLoggedin, addItemCtrl.addItem);
+router.post(
+  "/list/:listId/removeItem",
+  ensureLoggedin,
+  removeItemCtrl.removeItem
+);
+router.post("/list/:listId/addItem", ensureLoggedin, addItemCtrl.addItem);
 router.post("/list/remove", ensureLoggedin, removeCtrl.remove);
 router.post("/list/new", ensureLoggedin, createCtrl.create);
 

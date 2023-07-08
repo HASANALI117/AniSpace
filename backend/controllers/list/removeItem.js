@@ -2,7 +2,7 @@ const List = require("../../models/List");
 
 exports.removeItem = async function (req, res) {
   try {
-    const listId = req.body.listId;
+    const listId = req.params.listId;
     const mal_id = req.body.mal_id;
 
     const list = await List.findById(listId);

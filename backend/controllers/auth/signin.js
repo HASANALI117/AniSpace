@@ -5,7 +5,7 @@ require("dotenv").config();
 exports.signin = async function (req, res) {
   try {
     let { phoneNumber, password } = req.body;
-    let user = await User.findOne({ phoneNumber });
+    let user = await User.findOne({ phoneNumber }).populate("lists");
     console.log(user);
 
     if (!user) {
@@ -19,13 +19,19 @@ exports.signin = async function (req, res) {
       return res.status(400).json({ message: "Password not matched!!" });
     }
 
+    const favoritesList = user.lists.find((list) => list.title === "Favorites");
+    const favoritesListId = favoritesList._id.toString();
+
     // Generate JWT
     const payload = {
       user: {
         id: user._id,
         name: user.firstName,
+        favListId: favoritesListId,
       },
     };
+
+    console.log(payload);
 
     jwt.sign(
       payload,
