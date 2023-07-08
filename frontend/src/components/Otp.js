@@ -1,13 +1,53 @@
 import React, { useState } from "react";
 import OtpInput from "react-otp-input";
 import Button from "react-bootstrap/Button";
+import { useEffect } from "react";
+import axios from "axios";
+import { useParams } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 
 export default function App() {
   const [otp, setOtp] = useState("");
 
+  const { phoneNumber } = useParams();
+
+  const navigate = useNavigate();
+
+  console.log(phoneNumber);
+
   const handleClick = () => {
-    console.log(otp);
+    const url =
+      "http://ec2-15-185-195-60.me-south-1.compute.amazonaws.com:4000/auth/verify/phone";
+
+    axios
+      .post(url, { phoneNumber: phoneNumber, otp: otp })
+      .then((res) => {
+        console.log(res);
+        navigate("/signin");
+      })
+      .catch((error) => {
+        console.log(error);
+      });
   };
+
+  useEffect(() => {
+    console.log(otp);
+  }, [otp]);
+
+  useEffect(() => {
+    const url =
+      "http://ec2-15-185-195-60.me-south-1.compute.amazonaws.com:4000/auth/send/otp";
+
+    axios
+      .post(url, { phoneNumber: phoneNumber })
+      .then((res) => {
+        console.log(res);
+      })
+      .catch((error) => {
+        console.log(error);
+      });
+  }, []);
+
   return (
     <div
       style={{

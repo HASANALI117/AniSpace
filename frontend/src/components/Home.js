@@ -62,7 +62,7 @@ export default function Home(props) {
         carouselTitle={"Current Season"}
       />
 
-      {props.isAuth ? (
+      {props.isAuth && faveAnimeList.length !== 0 ? (
         <CardsCarousel animeList={faveAnimeList} carouselTitle={"Favorites"} />
       ) : null}
     </div>

@@ -29,7 +29,7 @@ export default function Signup() {
       const url =
         "http://ec2-15-185-195-60.me-south-1.compute.amazonaws.com:4000/auth/signup";
       const res = await axios.post(url, data);
-      navigate("/signin");
+      navigate(`/otp/+973${data.phoneNumber}`);
       console.log(res);
     } catch (error) {
       if (

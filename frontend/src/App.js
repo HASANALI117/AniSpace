@@ -106,7 +106,7 @@ export default function App() {
         <Route path="/search" element={<Search results={results} />} />
         <Route path="/movie" element={<Movie />} />
         <Route path="*" element={<PageError />} />
-        <Route path="/otp" element={<Otp />} />
+        <Route path="/otp/:phoneNumber" element={<Otp />} />
       </Routes>
     </>
   );
