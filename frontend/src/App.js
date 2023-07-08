@@ -96,7 +96,7 @@ export default function App() {
       />
 
       <Routes>
-        <Route path="/" element={<Home />} />
+        <Route path="/" element={<Home isAuth={isAuth} />} />
         <Route path="/signin" element={<Signin />} />
         <Route path="/signup" element={<Signup />} />
         <Route path="/forums" element={<Forums />} />

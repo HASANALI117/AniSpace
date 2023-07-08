@@ -11,7 +11,7 @@ module.exports = (req, res, next) => {
   }
 
   if (!authToken) {
-    return res.json({ message: "no token found" });
+    return res.status(400).json({ message: "no token found" });
   }
 
   try {

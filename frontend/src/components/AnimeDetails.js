@@ -8,8 +8,9 @@ import RelatedAnime from "./RelatedAnime";
 import Loading from "./Loading";
 import AnimeList from "./AnimeList";
 import { CSSTransition } from "react-transition-group";
+import jwtDecode from "jwt-decode";
 
-export default function AnimeDetails() {
+export default function AnimeDetails(props) {
   const location = useLocation();
   const query = new URLSearchParams(location.search);
   const id = query.get("id");
@@ -22,20 +23,105 @@ export default function AnimeDetails() {
   const [isButtonClicked, setIsButtonClicked] = useState(false);
   const [isFave, setIsFave] = useState(false);
 
+  useEffect(() => {
+    console.log(isFave);
+  }, [isFave]);
+
   const handleShowAnimeList = () => {
     setShowAnimeList(!showAnimeList);
     setIsButtonClicked(true);
   };
 
-  const handleIsFave = () => {
-    setIsFave(!isFave);
+  const handleIsFave = async () => {
+    const token = localStorage.getItem("token");
+
+    const user = jwtDecode(token);
+
+    if (!isFave) {
+      try {
+        const res = await axios.post(
+          `http://ec2-15-185-195-60.me-south-1.compute.amazonaws.com:4000/list/${user.user.favListId}/addItem`,
+          animeDetail,
+          {
+            headers: {
+              Authorization: `Bearer ${token}`,
+            },
+          }
+        );
+        console.log(res);
+        setIsFave(true);
+      } catch (error) {
+        if (
+          error.response &&
+          error.response.status >= 400 &&
+          error.response.status <= 500
+        ) {
+          console.log(error.response.data.message);
+        }
+      }
+    } else {
+      try {
+        const res = await axios.post(
+          `http://ec2-15-185-195-60.me-south-1.compute.amazonaws.com:4000/list/${user.user.favListId}/removeItem`,
+          {
+            mal_id: animeDetail.mal_id,
+          },
+          {
+            headers: {
+              Authorization: `Bearer ${token}`,
+            },
+          }
+        );
+        console.log(res);
+        setIsFave(false);
+      } catch (error) {
+        if (
+          error.response &&
+          error.response.status >= 400 &&
+          error.response.status <= 500
+        ) {
+          console.log(error.response.data.message);
+        }
+      }
+    }
+  };
+
+  const checkIsFave = async () => {
+    const token = localStorage.getItem("token");
+
+    const user = jwtDecode(token);
+
+    console.log(user);
+
+    const res = await axios.get(
+      `http://ec2-15-185-195-60.me-south-1.compute.amazonaws.com:4000/list/${user.user.favListId}/items`,
+      {
+        headers: {
+          Authorization: `Bearer ${token}`,
+        },
+      }
+    );
+
+    console.log(res.data.items);
+
+    const favList = res.data.items;
+    const isFave = favList.some((item) => item.mal_id === parseInt(id));
+    console.log(isFave);
+    return isFave;
   };
 
   useEffect(() => {
+    const updateIsFave = async () => {
+      const isFave = await checkIsFave();
+      setIsFave(isFave);
+    };
+
+    updateIsFave();
+
     axios
       .get(`https://api.jikan.moe/v4/anime/${id}/full`)
       .then((response) => {
-        console.log(response.data.data);
+        // console.log(response.data.data);
         setAnimeDetail(response.data.data);
       })
       .catch((error) => {
@@ -45,7 +131,7 @@ export default function AnimeDetails() {
     axios
       .get(`https://api.jikan.moe/v4/anime/${id}/recommendations`)
       .then((response) => {
-        console.log(response.data.data);
+        // console.log(response.data.data);
         setRelatedAnimeList(response.data.data);
       })
       .catch((error) => {
@@ -58,6 +144,7 @@ export default function AnimeDetails() {
     }, 1000);
     setTimeoutId(timerId);
   }, [id]);
+
   if (!animeDetail) {
     return <Loading />;
   }
