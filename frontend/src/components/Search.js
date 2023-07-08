@@ -5,13 +5,13 @@ export default function Search(props) {
   const resultsCards = props.results.map((anime) => (
     <div
       style={{
-        margin: "0 20px",
+        margin: "0 auto",
         padding: "2rem 0",
-        height: "37vh",
-        width: "11vw",
+        height: "48vh",
+        width: "17vw",
       }}
     >
-      <AnimeCard key={anime.mal_id} anime={anime} />
+      <AnimeCard key={anime.mal_id} anime={anime} id={anime.mal_id} />
     </div>
   ));
 

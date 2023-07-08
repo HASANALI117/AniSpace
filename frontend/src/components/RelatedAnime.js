@@ -27,15 +27,17 @@ export default function RelatedAnime(props) {
   const animeCards = props.animeList.map((anime) => (
     <div
       style={{
-        margin: "0 20px",
+        margin: "0 auto",
         padding: "2rem 0",
-        height: "40vh",
+        height: "48vh",
         width: "17vw",
       }}
     >
-      <a href={`/anime-details?id=${anime.entry.mal_id}`}>
-        <AnimeCard key={anime.entry.mal_id} anime={anime.entry} />
-      </a>
+      <AnimeCard
+        key={anime.entry.mal_id}
+        anime={anime.entry}
+        id={anime.entry.mal_id}
+      />
     </div>
   ));
   console.log(props.animeList);

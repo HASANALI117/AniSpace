@@ -34,9 +34,7 @@ export default function CurrentSeasonCarousel(props) {
         width: "17vw",
       }}
     >
-      <a href={`/anime-details?id=${anime.mal_id}`}>
-        <AnimeCard key={anime.mal_id} anime={anime} />
-      </a>
+      <AnimeCard key={anime.mal_id} anime={anime} id={anime.mal_id} />
     </div>
   ));
 

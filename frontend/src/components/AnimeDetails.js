@@ -6,6 +6,8 @@ import Card from "react-bootstrap/Card";
 import YouTube from "react-youtube-embed";
 import RelatedAnime from "./RelatedAnime";
 import Loading from "./Loading";
+import AnimeList from "./AnimeList";
+import { CSSTransition } from "react-transition-group";
 
 export default function AnimeDetails() {
   const location = useLocation();
@@ -16,6 +18,18 @@ export default function AnimeDetails() {
   const [error, setError] = useState(null);
   const [isTimeOut, setIsTimeOut] = useState(false);
   const [timeoutId, setTimeoutId] = useState(null); // add state variable for timeout ID
+  const [showAnimeList, setShowAnimeList] = useState(false);
+  const [isButtonClicked, setIsButtonClicked] = useState(false);
+  const [isFave, setIsFave] = useState(false);
+
+  const handleShowAnimeList = () => {
+    setShowAnimeList(!showAnimeList);
+    setIsButtonClicked(true);
+  };
+
+  const handleIsFave = () => {
+    setIsFave(!isFave);
+  };
 
   useEffect(() => {
     axios
@@ -97,15 +111,36 @@ export default function AnimeDetails() {
                 {animeDetail.genres.map((genre) => genre.name).join(", ")}
               </Card.Text>
               <div className="anime-details-buttons">
-                <Button variant="dark" style={{ width: "30%" }}>
-                  <i class="fa-regular fa-star fa-spin"></i>
+                <Button
+                  variant="dark"
+                  style={{ width: "30%" }}
+                  onClick={handleIsFave}
+                >
+                  <i
+                    className={`${
+                      isFave ? "fa-solid fa-spin" : "fa-regular fa-beat"
+                    } fa-star`}
+                  ></i>
                 </Button>
-                <Button variant="dark" style={{ width: "30%" }}>
+                <Button
+                  variant="dark"
+                  style={{ width: "30%" }}
+                  onClick={handleShowAnimeList}
+                  className={isButtonClicked ? "clicked" : ""}
+                >
                   <i
                     class="fa-solid fa-plus fa-bounce"
                     style={{ color: "#ffffff" }}
                   ></i>
                 </Button>
+                <CSSTransition
+                  in={showAnimeList}
+                  timeout={300}
+                  classNames="animelist"
+                  unmountOnExit
+                >
+                  <AnimeList />
+                </CSSTransition>
               </div>
             </Card.Body>
           </Card>
