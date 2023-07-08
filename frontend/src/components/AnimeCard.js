@@ -49,40 +49,44 @@ export default function AnimeCard(props) {
     textAlign: "left",
   };
 
-  const score = props.anime.score ? `Rating: ${props.anime.score}` : "";
+  const score = props.anime.score
+    ? `Rating: ${props.anime.score}`
+    : "Rating: -";
 
   const genre = props.anime.genres
     ? `Genres: ${props.anime.genres.map((genre) => genre.name).join(", ")}`
-    : "";
+    : "Genres: -";
 
   return (
-    <div
-      style={{
-        position: "relative",
-        width: "100%",
-        height: "100%",
-        borderRadius: "10px",
-        overflow: "hidden",
-        boxShadow: "0px 0px 10px rgba(0, 0, 0, 0.5)",
-        border: "1px solid white",
-      }}
-      onMouseEnter={handleMouseEnter}
-      onMouseLeave={handleMouseLeave}
-    >
-      <img
-        src={props.anime.images.jpg.image_url}
-        alt={props.anime.title}
-        style={{ width: "100%", height: "100%", objectFit: "cover" }}
-      />
-      <div style={overlayStyle}>
-        <div style={titleStyle}>{props.anime.title}</div>
-        {isExpanded && (
-          <div>
-            <div style={ratingStyle}>{score}</div>
-            <div style={genreStyle}>{genre}</div>
-          </div>
-        )}
+    <a href={`/anime-details?id=${props.id}`}>
+      <div
+        style={{
+          position: "relative",
+          width: "100%",
+          height: "100%",
+          borderRadius: "10px",
+          overflow: "hidden",
+          boxShadow: "0px 0px 10px rgba(0, 0, 0, 0.5)",
+          border: "1px solid white",
+        }}
+        onMouseEnter={handleMouseEnter}
+        onMouseLeave={handleMouseLeave}
+      >
+        <img
+          src={props.anime.images.jpg.image_url}
+          alt={props.anime.title}
+          style={{ width: "100%", height: "100%", objectFit: "cover" }}
+        />
+        <div style={overlayStyle}>
+          <div style={titleStyle}>{props.anime.title}</div>
+          {isExpanded && (
+            <div>
+              <div style={ratingStyle}>{score}</div>
+              <div style={genreStyle}>{genre}</div>
+            </div>
+          )}
+        </div>
       </div>
-    </div>
+    </a>
   );
 }

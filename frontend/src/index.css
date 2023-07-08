@@ -61,3 +61,38 @@ body {
   display: flex;
   justify-content: space-around;
 }
+
+/* Add to list button animation */
+.clicked {
+  animation: button-clicked 0.3s ease-in-out;
+}
+
+@keyframes button-clicked {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.2);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+.animelist-enter {
+  opacity: 0;
+}
+
+.animelist-enter-active {
+  opacity: 1;
+  transition: opacity 300ms;
+}
+
+.animelist-exit {
+  opacity: 1;
+}
+
+.animelist-exit-active {
+  opacity: 0;
+  transition: opacity 300ms;
+}
