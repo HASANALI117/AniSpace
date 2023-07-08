@@ -3,6 +3,7 @@ import axios from "axios";
 import { useState } from "react";
 import CardsCarousel from "./CardsCarousel";
 import { useEffect } from "react";
+import Loading from "./Loading";
 
 export default function Anime() {
   const [anime, setAnime] = useState({});
@@ -88,6 +89,10 @@ export default function Anime() {
 
     fetchData();
   }, []);
+
+  if (Object.keys(anime).length < 14) {
+    return <Loading />;
+  }
 
   return (
     <div>

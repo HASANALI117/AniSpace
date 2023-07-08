@@ -17,6 +17,7 @@ import AnimeDetails from "./components/AnimeDetails";
 import Movie from "./components/Movie";
 import Signup from "./components/Signup";
 import PageError from "./components/PageError/PageError";
+import Otp from "./components/Otp";
 
 // Styles
 import "./index.css";
@@ -105,6 +106,7 @@ export default function App() {
         <Route path="/search" element={<Search results={results} />} />
         <Route path="/movie" element={<Movie />} />
         <Route path="*" element={<PageError />} />
+        <Route path="/otp" element={<Otp />} />
       </Routes>
     </>
   );
