@@ -20,7 +20,8 @@ export default function Signin() {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      const url = "http://localhost:4000/auth/signin";
+      const url =
+        "http://ec2-15-185-195-60.me-south-1.compute.amazonaws.com:4000/auth/signin";
       const res = await axios.post(url, data);
       localStorage.setItem("token", res.data.token);
       navigate("/");
