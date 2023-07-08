@@ -3,6 +3,7 @@ import axios from "axios";
 import { useState } from "react";
 import CardsCarousel from "./CardsCarousel";
 import { useEffect } from "react";
+import Loading from "./Loading";
 
 export default function Movie() {
   const [movie, setMovie] = useState({});
@@ -68,6 +69,10 @@ export default function Movie() {
 
     fetchData();
   }, []);
+
+  if (Object.keys(movie).length < 12) {
+    return <Loading />;
+  }
 
   return (
     <div>

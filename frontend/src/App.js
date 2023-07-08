@@ -10,13 +10,14 @@ import jwt_decode from "jwt-decode";
 import Home from "./components/Home";
 import Signin from "./components/Signin";
 import NavigationBar from "./components/NavigationBar";
-import Forums from "./components/Forums";
+// import Forums from "./components/Forums";
 import Anime from "./components/Anime";
 import Search from "./components/Search";
 import AnimeDetails from "./components/AnimeDetails";
 import Movie from "./components/Movie";
 import Signup from "./components/Signup";
 import PageError from "./components/PageError/PageError";
+import Otp from "./components/Otp";
 
 // Styles
 import "./index.css";
@@ -99,12 +100,13 @@ export default function App() {
         <Route path="/" element={<Home isAuth={isAuth} />} />
         <Route path="/signin" element={<Signin />} />
         <Route path="/signup" element={<Signup />} />
-        <Route path="/forums" element={<Forums />} />
+        {/* <Route path="/forums" element={<Forums />} /> */}
         <Route path="/anime" element={<Anime />} />
         <Route path="/anime-details" element={<AnimeDetails />} />
         <Route path="/search" element={<Search results={results} />} />
         <Route path="/movie" element={<Movie />} />
         <Route path="*" element={<PageError />} />
+        <Route path="/otp" element={<Otp />} />
       </Routes>
     </>
   );
