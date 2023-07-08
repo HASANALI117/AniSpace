@@ -9,20 +9,21 @@ exports.signin = async function (req, res) {
     console.log(user);
 
     if (!user) {
-      return res.json({ message: "User not found!" }).status(400);
+      return res.status(400).json({ message: "User not found!" });
     }
 
     // Password Comparison
     const isMatch = await user.verfiyPasswords(password);
 
     if (!isMatch) {
-      return res.json({ message: "Password not matched!!" }).status(400);
+      return res.status(400).json({ message: "Password not matched!!" });
     }
 
     // Generate JWT
     const payload = {
       user: {
         id: user._id,
+        name: user.firstName,
       },
     };
 
