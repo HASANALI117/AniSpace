@@ -96,3 +96,49 @@ body {
   opacity: 0;
   transition: opacity 300ms;
 }
+
+/* User Profile */
+
+.formuserprofile {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  margin: 15px;
+  align-items: center;
+  max-width: 100vh;
+  max-height: 100vh;
+  padding: 15px;
+  margin: 2rem auto;
+}
+
+.formuserprofile h1 {
+  text-align: center;
+  font-size: 3rem;
+  padding: 1rem;
+  color: white;
+  background-color: black;
+  border-radius: 10px;
+  margin-bottom: 2rem;
+}
+
+.formformuser {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  max-height: fit-content;
+}
+
+.userprofileinput {
+  display: flex;
+  justify-content: center;
+  max-width: 40vh;
+  margin: 0 auto;
+  padding: 10px;
+  width: 500px;
+  height: 40px;
+  margin-bottom: 20px;
+  border-radius: 10px;
+  border: solid black 3px;
+  color: black;
+  background-color: white;
+}

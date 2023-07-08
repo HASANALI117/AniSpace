@@ -18,6 +18,7 @@ import Movie from "./components/Movie";
 import Signup from "./components/Signup";
 import PageError from "./components/PageError/PageError";
 import Otp from "./components/Otp";
+import UserProfile from "./components/UserProfile";
 
 // Styles
 import "./index.css";
@@ -107,6 +108,7 @@ export default function App() {
         <Route path="/movie" element={<Movie />} />
         <Route path="*" element={<PageError />} />
         <Route path="/otp" element={<Otp />} />
+        <Route path="/user-profile" element={<UserProfile />} />
       </Routes>
     </>
   );
