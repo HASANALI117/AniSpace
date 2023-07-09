@@ -30,6 +30,6 @@
 
 # Next Step 
 
-1. 
-2.
+1.chat section  
+2.custom of wish list 
 
