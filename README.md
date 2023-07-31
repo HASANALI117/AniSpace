@@ -12,8 +12,8 @@
 ## Getting Started
 To get started with AniSpace, you will need to have Node.js and NPM installed. Once you have those installed, you can clone the repo and run the following commands:
 
-npm install
-npm start
+```npm install
+npm start```
 
 This will start the AniSpace app in development mode. You can then open the app in your browser at http://localhost:3000.
 
