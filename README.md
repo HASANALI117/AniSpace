@@ -24,7 +24,7 @@ This will start the AniSpace app in development mode. You can then open the app 
 
 ![signUp](./ReadMe/signup.png)
 
-![login](./ReadMe/login.png)
+![login](./ReadMe/logIn.png)
 
 ![main](./ReadMe/main.png)
 
@@ -32,7 +32,6 @@ This will start the AniSpace app in development mode. You can then open the app 
 
 ![ERD](./ReadMe/ERD.png)
 
-![website](./ReadMe/.png)
 
 ## Trello
 
